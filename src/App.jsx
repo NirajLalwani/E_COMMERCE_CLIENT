@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <ScrollToTop />
+      
       <Routes>
         <Route path='*' element={<Error />} />
         <Route path='/' element={<HomePage />} />
