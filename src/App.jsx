@@ -15,21 +15,21 @@ import SingleProduct from "./pages/SingleProduct"
 import AddToCart from './pages/AddToCart.jsx'
 import Products from "./pages/Products"
 import Footer from "./components/Footer"
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 
 function App() {
 
 
-  const history = useHistory();
+  // const history = useHistory();
 
-  useEffect(() => {
-    const unlisten = history.listen(() => {
-      window.scrollTo(0, 0);
-    });
-    return () => {
-      unlisten();
-    };
-  }, [history]);
+  // useEffect(() => {
+  //   const unlisten = history.listen(() => {
+  //     window.scrollTo(0, 0);
+  //   });
+  //   return () => {
+  //     unlisten();
+  //   };
+  // }, [history]);
 
 
   return (
