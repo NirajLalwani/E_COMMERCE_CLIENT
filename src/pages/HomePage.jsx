@@ -11,7 +11,7 @@ const HomePage = () => {
       </>)
   }
   return (
-    <div>
+    <div className='HomePage'>
       <Hero />
       <ProductSections Data={featureProducts} height='200px' headingName="Feature Products" />
       <ProductSections Data={newlyLaunchedProducts} height='200px' headingName="Newly Launched" />

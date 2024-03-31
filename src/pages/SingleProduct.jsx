@@ -123,10 +123,13 @@ const SingleProduct = () => {
                     </button>
                 </div>
             </div>
+            <div className="singleProducts_related_Data">
+
             {singleProduct.relatedData.length > 0 ?
                 <ProductSections height={"150px"} headingName='Related Data' Data={singleProduct.relatedData} showBtn={false} />
                 : ""
             }
+            </div>
         </>
     )
 }
