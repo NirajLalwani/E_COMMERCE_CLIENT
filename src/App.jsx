@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Route, Routes } from 'react-router-dom'
 import Register from "./pages/register"
 import './styles/App.css'
@@ -15,16 +15,25 @@ import SingleProduct from "./pages/SingleProduct"
 import AddToCart from './pages/AddToCart.jsx'
 import Products from "./pages/Products"
 import Footer from "./components/Footer"
-
+import { useRef, useEffect } from "react"
 
 function App() {
 
- 
+  const topRef = useRef(null);
+
+  const scrollToTop = () => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  useEffect(scrollToTop, [])
+
 
   return (
     <>
       <Navbar />
-      
+
       <Routes>
         <Route path='*' element={<Error />} />
         <Route path='/' element={<HomePage />} />
