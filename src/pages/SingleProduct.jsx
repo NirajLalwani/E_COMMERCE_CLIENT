@@ -119,7 +119,7 @@ const SingleProduct = () => {
                         addToCart({ ...singleProduct, quantity })
                         setTimeout(()=>{
                             Navigate('/cart')
-                        },3000)
+                        },1000)
                     }}>
                         Add To Cart
                     </button>
