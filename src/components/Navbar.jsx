@@ -22,7 +22,7 @@ const Navbar = () => {
                     <ul >
                         <IoCloseSharp className='close mobile_icon' onClick={() => setNavopen(false)} />
                         <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/'>Home</NavLink>
-                        <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/niraj/verify/lasdk'>Verify</NavLink>
+                        <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/f0babde73ed5208d468c3c075057a6dff71b4b4d/verify/66092ef581961691bc96a29a'>Verify</NavLink>
                         <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/contact'>Contact</NavLink>
                         <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/products'>Products</NavLink>
                         {
