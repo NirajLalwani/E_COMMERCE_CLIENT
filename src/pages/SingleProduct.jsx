@@ -117,7 +117,9 @@ const SingleProduct = () => {
 
                     <button className="btn" onClick={() => {
                         addToCart({ ...singleProduct, quantity })
-                        Navigate('/cart')
+                        setTimeout(()=>{
+                            Navigate('/cart')
+                        },3000)
                     }}>
                         Add To Cart
                     </button>
