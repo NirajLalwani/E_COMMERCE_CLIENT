@@ -9,10 +9,12 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import ProductSections from '../components/ProductSections';
 import { useCart } from '../Context/CartContext';
 import Loading from '../components/Loading';
+import { useRef } from 'react';
 const SingleProduct = () => {
 
 
     const Navigate = useNavigate();
+    const topRef = useRef(null);
 
     const { isSingleLoading, setSingleProduct, products, singleProduct, BigImage, next, previous, setBigImage } = useProductContext();
 
@@ -26,6 +28,18 @@ const SingleProduct = () => {
         if (products) {
             setSingleProduct(param.id)
         }
+
+
+
+
+        const scrollToTop = () => {
+            if (topRef.current) {
+                topRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
+        scrollToTop()
+
     }, [products, param.id])
 
     if (isSingleLoading || !products) {
