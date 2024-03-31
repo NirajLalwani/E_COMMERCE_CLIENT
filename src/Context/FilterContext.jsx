@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useReducer } from 'react'
+import Loading from '../components/Loading';
 import reducer from '../Reducer/filterReducer';
 import { useProductContext } from './ProductContext';
 const filterContext = createContext();
@@ -8,7 +9,7 @@ const FilterContext = ({ children }) => {
     const { isLoading, products } = useProductContext();
 
     if (isLoading || !products) {
-        return <h1>Loading</h1>
+        return <Loading />
     }
 
     const initialState = {

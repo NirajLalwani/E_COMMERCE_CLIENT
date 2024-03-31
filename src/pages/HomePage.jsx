@@ -2,12 +2,13 @@ import React from 'react'
 import Hero from '../components/Hero'
 import ProductSections from '../components/ProductSections'
 import { useProductContext } from '../Context/ProductContext'
+import Loading from '../components/Loading'
 const HomePage = () => {
   const { featureProducts, isLoading, newlyLaunchedProducts } = useProductContext();
   if (isLoading) {
     return (
       <>
-        <h1>Home Page Loadiing</h1>
+        <isLoading />
       </>)
   }
   return (

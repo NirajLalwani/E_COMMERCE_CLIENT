@@ -1192,3 +1192,53 @@ footer .social-links .f-logos {
 .bigImage img {
     max-height: 100%;
 }
+
+
+
+/* Loading */
+
+.LoadingComponent {
+    height: 100vh;
+    width: 100vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    background-color:#a7c1eb;
+}
+
+.loader {
+    height: 5rem;
+    width: 5rem;
+    border: 5px solid transparent;
+    border-top: 5px solid var(--textColor);
+    border-left: 5px solid var(--textColor);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.LoadingComponent .p {
+    font-size: 2rem;
+    color: var(--textColor);
+}
+
+
+.ErrorComponents{
+    height: 50rem;
+    width: 100vw;
+    gap: 1rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    flex-direction: column;
+    background-color: rgba(45, 45, 45, 0.557);
+}
+
+.ErrorComponents h1{
+    font-size: 4rem;
+    color: black;
+}

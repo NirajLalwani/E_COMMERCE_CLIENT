@@ -8,6 +8,7 @@ import { GrFormPrevious } from "react-icons/gr";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import ProductSections from '../components/ProductSections';
 import { useCart } from '../Context/CartContext';
+import Loading from '../components/Loading';
 const SingleProduct = () => {
 
 
@@ -28,13 +29,8 @@ const SingleProduct = () => {
     }, [products, param.id])
 
     if (isSingleLoading || !products) {
-        return <>
-            <h1>Loading.....</h1>
-        </>
+        return <Loading />
     }
-
-
-    console.log(singleProduct.relatedData, "Related Data")
 
     return (
         <>
@@ -125,10 +121,10 @@ const SingleProduct = () => {
             </div>
             <div className="singleProducts_related_Data">
 
-            {singleProduct.relatedData.length > 0 ?
-                <ProductSections height={"150px"} headingName='Related Data' Data={singleProduct.relatedData} showBtn={false} />
-                : ""
-            }
+                {singleProduct.relatedData.length > 0 ?
+                    <ProductSections height={"150px"} headingName='Related Data' Data={singleProduct.relatedData} showBtn={false} />
+                    : ""
+                }
             </div>
         </>
     )

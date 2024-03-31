@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { useUserContext } from '../Context/UserContext';
+import Loading from '../components/Loading';
 import { BASE_URL } from '../../services/baseurl';
 
 const Emailverify = () => {
@@ -17,7 +18,7 @@ const Emailverify = () => {
                 method: "GET"
             });
             const data = await response.json()
-            console.log("This is Verify",data); 
+            console.log("This is Verify", data);
             if (response.status === 200) {
                 localStorage.setItem("token", data.token)
                 setToken(data.token);
@@ -44,7 +45,7 @@ const Emailverify = () => {
             Navigate('/404ErrorPage')
         }
     }
-    
+
     useEffect(() => {
         if (isMounted) {
             verifyMail();
@@ -64,10 +65,7 @@ const Emailverify = () => {
                 :
                 isVerified ?
                     <div id='LoadingPage'>
-                        <div className="loading"></div>
-                        <h1>
-                            Loading
-                        </h1>
+                        <Loading />
                     </div> :
                     <h1>
                         Verified..

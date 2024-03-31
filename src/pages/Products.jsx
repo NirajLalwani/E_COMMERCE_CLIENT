@@ -2,15 +2,16 @@ import React from 'react'
 import { useProductContext } from '../Context/ProductContext'
 import Card from '../components/Card'
 import { useFilterContext } from '../Context/FilterContext'
+import Loading from '../components/Loading'
 const Products = () => {
 
   const { isLoading } = useProductContext();
 
   if (isLoading) {
-    return <h1>Products Loading</h1>
+    return <Loading />
   }
 
-  const { filterProducts, setSortValue,setSearchFilter } = useFilterContext();
+  const { filterProducts, setSortValue, setSearchFilter } = useFilterContext();
 
   return (
     <>
@@ -20,14 +21,14 @@ const Products = () => {
 
           <div className="filters">
             <div className="search">
-              <input type="text" placeholder='Search Products' onInput={setSearchFilter}/>
+              <input type="text" placeholder='Search Products' onInput={setSearchFilter} />
             </div>
             <div className="items_count">
               Total Items {filterProducts.length}
             </div>
             <div className="sort_by">
               <select name="" id="" onChange={(e) => {
-              
+
                 setSortValue(e)
               }}>
                 <option value="">Sort By</option>
