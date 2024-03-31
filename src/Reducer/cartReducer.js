@@ -28,7 +28,6 @@ const reducer = (state, action) => {
                     ...state.cart,
                     newData
                 ]
-
             }
 
         case "INCREASE_QUANTITY":

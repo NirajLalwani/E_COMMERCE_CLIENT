@@ -43,7 +43,8 @@ const CartContext = ({ children }) => {
 
     useEffect(() => {
         dispatch({ type: "SET_TOTAL" })
-    }, [])
+        localStorage.setItem("AddToCartData", JSON.stringify(state.cart))
+    }, [state.cart])
 
 
     return (
