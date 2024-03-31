@@ -12,22 +12,37 @@ const FilterContext = ({ children }) => {
         return <Loading />
     }
 
+
     const initialState = {
         allProducts: products,
         filterProducts: products,
         isFilterLoading: true,
         filters: {
-            sortBy: '',
-            search: ""
+            sortBy: false,
+            search: false,
+            priceLessThan: false,
+            category: false,
         }
     }
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
+    if (!state) {
+        return <Loading />
+    }
 
-    const setSortValue = (e) => {
+    const getCategory = () => {
+        const arrayWithDuplicates = [];
+        state.allProducts.forEach(curr => arrayWithDuplicates.push(curr.category));
 
-        dispatch({ type: "SET_SORT_VALUE", payload: e.target.value })
+        const uniqueArray = [...new Set(arrayWithDuplicates)];
+
+        return uniqueArray;
+    }
+
+
+    const setFilters = (e) => {
+        dispatch({ type: "SET_FILTERS", payload: { value: e.target.value, name: e.target.name } })
     }
 
 
@@ -35,12 +50,18 @@ const FilterContext = ({ children }) => {
         dispatch({ type: "SET_SEARCH_VALUE", payload: (e.target.value).trim() })
     }
 
+
+    const clearFilters = () => {
+        dispatch({ type: "CLEAR_FILTERS" })
+    }
+
+
     useEffect(() => {
         dispatch({ type: "LOAD_FILTER_PRODUCTS" })
     }, [state.filters])
 
     return (
-        <filterContext.Provider value={{ ...state, setSortValue, setSearchFilter }}>
+        <filterContext.Provider value={{ ...state, setFilters, setSearchFilter, getCategory, clearFilters }}>
             {children}
         </filterContext.Provider>
     )

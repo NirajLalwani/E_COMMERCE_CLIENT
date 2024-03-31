@@ -14,6 +14,7 @@ import Logout from "./pages/Logout"
 import SingleProduct from "./pages/SingleProduct"
 import AddToCart from './pages/AddToCart.jsx'
 import Products from "./pages/Products"
+import ScrollToTopArrow from "./components/ScrollToTopArrow"
 import Footer from "./components/Footer"
 
 import ScrollToTop from "./components/ScrollToTop"
@@ -39,6 +40,7 @@ function App() {
         <Route path='/products' element={< Products />} />
       </Routes>
       <Footer />
+      <ScrollToTopArrow />
     </>
   )
 }

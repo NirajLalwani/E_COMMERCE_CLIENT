@@ -10,7 +10,6 @@ import FilterContext from './Context/FilterContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   <CartContext>
-
     <ProductContext>
       <FilterContext>
         <UserContext>
@@ -18,10 +17,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <BrowserRouter>
               <App />
             </BrowserRouter>
-          </React.StrictMode>,
+          </React.StrictMode>
         </UserContext>
       </FilterContext>
-
     </ProductContext >
   </CartContext>
 )

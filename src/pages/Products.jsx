@@ -3,6 +3,8 @@ import { useProductContext } from '../Context/ProductContext'
 import Card from '../components/Card'
 import { useFilterContext } from '../Context/FilterContext'
 import Loading from '../components/Loading'
+import { MdOutlineExpandMore } from "react-icons/md";
+import Filters from '../components/Filters'
 const Products = () => {
 
   const { isLoading } = useProductContext();
@@ -11,7 +13,7 @@ const Products = () => {
     return <Loading />
   }
 
-  const { filterProducts, setSortValue, setSearchFilter } = useFilterContext();
+  const { filterProducts, setSearchFilter } = useFilterContext();
 
   return (
     <>
@@ -26,17 +28,13 @@ const Products = () => {
             <div className="items_count">
               Total Items {filterProducts.length}
             </div>
-            <div className="sort_by">
-              <select name="" id="" onChange={(e) => {
 
-                setSortValue(e)
-              }}>
-                <option value="">Sort By</option>
-                <option value="low-high">low-high</option>
-                <option value="high-low">high-low</option>
-                <option value="a-z">a-z</option>
-                <option value="z-a">z-a</option>
-              </select>
+            <Filters />
+            <div className="sort_by" onClick={() => {
+              let filter = document.querySelector('.filters_container');
+              filter.style.top = '10rem'
+            }}>
+              More Filters <MdOutlineExpandMore />
             </div>
           </div>
 

@@ -40,19 +40,29 @@ const reducer = (state, action) => {
 
             }
 
-            tempProducts = tempProducts.filter((curr) => curr.name.toUpperCase().includes(state.filters.search.toUpperCase()))
+            if (state.filters.search) {
+                tempProducts = tempProducts.filter((curr) => curr.name.toUpperCase().includes(state.filters.search.toUpperCase()))
+            }
+            if (state.filters.priceLessThan) {
+                tempProducts = tempProducts.filter((curr) => curr.price < state.filters.priceLessThan);
+            }
+            if (state.filters.category) {
+                tempProducts = tempProducts.filter((curr) => curr.category === state.filters.category);
+            }
+
+
 
             return {
                 ...state,
                 filterProducts: tempProducts,
                 isFilterLoading: false,
             }
-        case "SET_SORT_VALUE":
+        case "SET_FILTERS":
             return {
                 ...state,
                 filters: {
                     ...state.filters,
-                    sortBy: action.payload
+                    [action.payload.name]: action.payload.value
                 }
             }
 
@@ -62,6 +72,16 @@ const reducer = (state, action) => {
                 filters: {
                     ...state.filters,
                     search: action.payload
+                }
+            }
+        case "CLEAR_FILTERS":
+            return {
+                ...state,
+                filters: {
+                    ...state.filters,
+                    sortBy: false,
+                    category: false,
+                    priceLessThan: false
                 }
             }
     }
