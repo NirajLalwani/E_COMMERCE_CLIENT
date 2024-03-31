@@ -52,6 +52,7 @@ const ProductContext = ({ children }) => {
     }
     useEffect(() => {
         const fetchData = async () => {
+            console.log("PRODUCT CONTEXT",API)
             await getProducts(API);
         };
         fetchData();
