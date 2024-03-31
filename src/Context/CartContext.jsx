@@ -14,19 +14,24 @@ const CartContext = ({ children }) => {
         const newData = { _id, name, quantity, price, images, stock };
         console.log(newData)
         dispatch({ type: "ADD_NEW_DATA", payload: newData })   
+        dispatch({ type: "SET_TOTAL" })
     }
     const increaseQuantity = (index) => {
         dispatch({ type: "INCREASE_QUANTITY", payload: index })
+        dispatch({ type: "SET_TOTAL" })
     }
     const decreaseQuantity = (index) => {
         dispatch({ type: "DECREASE_QUANTITY", payload: index })
+        dispatch({ type: "SET_TOTAL" })
     }
 
     const removeItem = (index) => {
         dispatch({ type: "REMOVE_ITEM", payload: index })
+        dispatch({ type: "SET_TOTAL" })
     }
     const clearCart = () => {
         dispatch({ type: "CLEAR_CART" });
+        dispatch({ type: "SET_TOTAL" })
     }
 
     useEffect(() => {
