@@ -44,6 +44,7 @@ const Emailverify = () => {
             Navigate('/404ErrorPage')
         }
     }
+    
     useEffect(() => {
         if (isMounted) {
             verifyMail();
