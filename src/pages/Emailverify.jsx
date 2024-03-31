@@ -17,7 +17,7 @@ const Emailverify = () => {
                 method: "GET"
             });
             const data = await response.json()
-            console.log(data); 
+            console.log("This is Verify",data); 
             if (response.status === 200) {
                 localStorage.setItem("token", data.token)
                 setToken(data.token);
