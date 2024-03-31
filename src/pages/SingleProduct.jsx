@@ -71,7 +71,7 @@ const SingleProduct = () => {
                                 return (
                                     <img src={currImage}
                                         className={`${currImage.trim() === BigImage.trim() ? "activeImage" : ""}`}
-                                        onClick={() => {
+                                        onMouseEnter={() => {
                                             setBigImage(currImage)
                                         }} />
                                 )

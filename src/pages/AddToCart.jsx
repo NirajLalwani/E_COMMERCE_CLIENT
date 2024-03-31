@@ -35,14 +35,14 @@ const AddToCart = () => {
                                         <td>₹{currelement.price}</td>
                                         <td className='quantity'>
                                             <div className="quantityWrapper">
+                                                <div className="quantityBtn" onClick={() => decreaseQuantity(index)} >
+                                                    <FaMinus />
+                                                </div>
+                                                <span>{currelement.quantity}</span>
                                                 <div className="quantityBtn" onClick={() => {
                                                     increaseQuantity(index);
                                                 }}>
                                                     <FaPlus />
-                                                </div>
-                                                <span>{currelement.quantity}</span>
-                                                <div className="quantityBtn" onClick={() => decreaseQuantity(index)} >
-                                                    <FaMinus />
                                                 </div>
                                             </div>
                                         </td>
