@@ -11,7 +11,7 @@ const Filters = () => {
             <div className="filters_container">
                 <div className="close" onClick={() => {
                     let filter = document.querySelector('.filters_container');
-                    filter.style.top = '-30rem'
+                    filter.style.top = '-35rem'
                 }}>
                     <IoMdClose />
                 </div>
