@@ -9,7 +9,7 @@ import { useUserContext } from '../Context/UserContext';
 const Register = () => {
 
 
-    
+
     const { isLogin } = useUserContext();
 
     const navigate = useNavigate();
@@ -45,7 +45,10 @@ const Register = () => {
             toast.error("Enter Your Password")
         } else if (password.length < 8) {
             toast.error("Password Must Contain's 8 character")
-        } else {
+        } else if (password !== confirmPassword) {
+            toast.error("Password And Confirm Password Mush be same");
+        }
+        else {
             const response = await fetch(`${BASE_URL}/api/users/register`,
                 {
                     method: "POST",
