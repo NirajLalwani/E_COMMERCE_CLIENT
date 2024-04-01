@@ -3,11 +3,20 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { BASE_URL } from '../../services/baseurl';
 import Input from '../components/Input';
-import image from '../styles/images/register.png'
 
+import image from '../styles/images/register.png'
+import { useUserContext } from '../Context/UserContext';
 const Register = () => {
 
+
+    
+    const { isLogin } = useUserContext();
+
     const navigate = useNavigate();
+    if (isLogin) {
+        navigate('/404PageNotFound');
+    }
+
 
     const [data, setData] = useState({
         name: "",

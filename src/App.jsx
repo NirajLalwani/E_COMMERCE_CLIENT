@@ -16,7 +16,8 @@ import AddToCart from './pages/AddToCart.jsx'
 import Products from "./pages/Products"
 import ScrollToTopArrow from "./components/ScrollToTopArrow"
 import Footer from "./components/Footer"
-
+import ForgotPassword from "./pages/ForgotPassword"
+import ResetPassword from "./pages/ResetPassword"
 import ScrollToTop from "./components/ScrollToTop"
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
         <Route path='/product/:id' element={< SingleProduct />} />
         <Route path='/cart' element={< AddToCart />} />
         <Route path='/products' element={< Products />} />
+        <Route path='/forgotpassword' element={< ForgotPassword />} />
+        <Route path='/resetpassword/:token' element={< ResetPassword />} />
       </Routes>
       <Footer />
       <ScrollToTopArrow />

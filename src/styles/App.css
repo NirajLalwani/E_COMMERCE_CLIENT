@@ -1348,7 +1348,7 @@ footer .social-links .f-logos {
     -ms-transition: .7s ease-in-out;
     -o-transition: .7s ease-in-out;
 
-    
+
 
 
 
@@ -1356,11 +1356,24 @@ footer .social-links .f-logos {
 
     & div p {
         font-size: 1.3rem;
-        margin-bottom:.2rem;
+        margin-bottom: .2rem;
     }
-    & div select ,& div.close{
+
+    & div select,
+    & div.close {
         cursor: pointer;
     }
 }
 
 
+.login_password .input-container {
+    margin-bottom: 5px;
+}
+
+.login_password a {
+    color: var(--main-color);
+}
+
+.login_password {
+    margin-bottom: 1.5rem;
+}
