@@ -12,7 +12,6 @@ const CartContext = ({ children }) => {
 
     const addToCart = ({ _id, name, quantity, price, images, stock }) => {
         const newData = { _id, name, quantity, price, images, stock };
-        console.log(newData)
         dispatch({ type: "ADD_NEW_DATA", payload: newData })   
         dispatch({ type: "SET_TOTAL" })
     }

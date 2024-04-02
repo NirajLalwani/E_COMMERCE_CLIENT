@@ -7,7 +7,7 @@ import ProductReducer from "../Reducer/productReducer"
 const ProductContext = ({ children }) => {
 
     const API = `${BASE_URL}/api/products/data`;
-    console.log(API)
+    
     const initialState = {
         isLoading: true,
         isError: false,
@@ -52,7 +52,7 @@ const ProductContext = ({ children }) => {
     }
     useEffect(() => {
         const fetchData = async () => {
-            console.log("PRODUCT CONTEXT",API)
+           
             await getProducts(API);
         };
         fetchData();

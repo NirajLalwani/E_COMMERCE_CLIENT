@@ -59,7 +59,7 @@ const Register = () => {
                 }
             )
             const data_ = await response.json()
-            console.log(data)
+            
             if (response.status === 200) {
                 toast.success(data_.message);
             } else {

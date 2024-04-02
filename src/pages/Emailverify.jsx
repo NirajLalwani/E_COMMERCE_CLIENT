@@ -18,7 +18,7 @@ const Emailverify = () => {
                 method: "GET"
             });
             const data = await response.json()
-            console.log("This is Verify", data);
+            
             if (response.status === 200) {
                 localStorage.setItem("token", data.token)
                 setToken(data.token);
@@ -31,7 +31,7 @@ const Emailverify = () => {
     }
 
     const resendMail = async () => {
-        console.log("Resend Mail is Called");
+        
         const response = await fetch(`${BASE_URL}/api/users/resend/mail`, {
             method: "POST",
             body: JSON.stringify(params),
