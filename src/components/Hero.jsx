@@ -16,7 +16,7 @@ const Hero = () => {
                             </h1>
                             <p className="welcomeMessage">
 
-                                Welcome To Thapa EComStore, Your Ultimate Destination For Cuttingdege Gadgets! Explore The Latest In Tech Innovation And Style With Us. Shop Now And Discover A World Of Possibilities!
+                                Welcome To Electro Mart, Your Ultimate Destination For Cuttingdege Gadgets! Explore The Latest In Tech Innovation And Style With Us. Shop Now And Discover A World Of Possibilities!
                             </p>
                             <NavLink to='/products' className="btn">Shop Now</NavLink>
                         </div>
