@@ -12,25 +12,55 @@ const Navbar = () => {
     const { isLogin } = useUserContext()
 
     const [navopen, setNavopen] = useState(false);
+
+
+    const navbarFunction = (e) => {
+        const menu = document.querySelector('.menu');
+        const navbar = document.getElementById("Navbar");
+        let elementClicked = e.target;
+
+        if (navopen) {
+
+            if (elementClicked === menu || menu.contains(elementClicked)) {
+                setNavopen(false);
+            }
+            if (elementClicked === navbar || navbar.contains(elementClicked)) {
+                if (elementClicked.tagName == "UL") {
+                    setNavopen(true)
+                } else {
+                    setNavopen(false)
+                }
+            }
+        } else {
+            if (elementClicked === menu || menu.contains(elementClicked)) {
+                setNavopen(true);
+            } else {
+                setNavopen(false);
+            }
+        }
+    }
+    document.addEventListener('click', navbarFunction)
+
+
     return (
         <header>
             <div className="container">
                 <div className="logo">
                     <img src={logo} alt="" width='170px' />
                 </div>
-                <div className={`${navopen ? "OpenNav" : ''} navbar`}>
+                <nav className={`${navopen ? "OpenNav" : ''} navbar`} id='Navbar'>
                     <ul >
-                        <IoCloseSharp className='close mobile_icon' onClick={() => setNavopen(false)} />
-                        <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/'>Home</NavLink>
-                        <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/contact'>Contact</NavLink>
-                        <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/products'>Products</NavLink>
+                        <IoCloseSharp className='close mobile_icon' />
+                        <NavLink activeclassname='active' to='/'>Home</NavLink>
+                        <NavLink activeclassname='active' to='/contact'>Contact</NavLink>
+                        <NavLink activeclassname='active' to='/products'>Products</NavLink>
                         {
                             isLogin ? (
-                                <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/logout'>Logout</NavLink>
+                                <NavLink activeclassname='active' to='/logout'>Logout</NavLink>
                             ) : (
                                 <>
-                                    <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/login'>Login</NavLink>
-                                    <NavLink onClick={() => setNavopen(false)} activeclassname='active' to='/register'>Register</NavLink>
+                                    <NavLink activeclassname='active' to='/login'>Login</NavLink>
+                                    <NavLink activeclassname='active' to='/register'>Register</NavLink>
                                 </>
                             )
                         }
@@ -40,20 +70,14 @@ const Navbar = () => {
                         </div>
                     </ul>
 
-                </div>
+                </nav>
 
                 <div className="mobile_icon">
                     <div className='cart-logo'>
                         <div className="total_items">{cart.length}</div>
-                        <NavLink className='cart' to='/cart'><IoMdCart /></NavLink>
+                        <NavLink className='cart' to='/cart' ><IoMdCart className='MenuIcon' /></NavLink>
                     </div>
-                    <div className="menu" onClick={() => {
-                        if (navopen === true) {
-                            setNavopen(false)
-                        } else {
-                            setNavopen(true)
-                        }
-                    }}>
+                    <div className="menu">
                         <MdMenuOpen />
                     </div>
                 </div>
