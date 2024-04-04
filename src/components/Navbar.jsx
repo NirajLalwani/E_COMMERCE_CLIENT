@@ -40,6 +40,7 @@ const Navbar = () => {
         }
     }
     document.addEventListener('click', navbarFunction)
+    document.addEventListener('scroll', navbarFunction)
 
 
     return (
