@@ -1,16 +1,14 @@
 import React, { createContext, useCallback, useContext, useEffect, useReducer } from 'react'
 const AppContext = createContext()
 import { BASE_URL } from '../../services/baseurl';
-
 import ProductReducer from "../Reducer/productReducer"
-
 const ProductContext = ({ children }) => {
 
     const API = `${BASE_URL}/api/products/data`;
-    
+
     const initialState = {
-        isLoading: true,
         isError: false,
+        isLoading: true,
         products: false,
         featureProducts: [],
         newlyLaunchedProducts: [],
@@ -34,34 +32,29 @@ const ProductContext = ({ children }) => {
     }
 
     const setSingleProduct = (_id) => {
-        dispatch({ type: "SET_SINGLE_LOADING", payload: state.products })
+        dispatch({ type: "SET_SINGLE_LOADING" })
         dispatch({ type: "SET_SINGLE_PRODUCT", payload: { products: state.products, _id } })
-
         return state.singleProduct
     }
 
     const next = () => {
         dispatch({ type: "SET_NEXT_IMAGE" })
     }
+    
     const previous = () => {
         dispatch({ type: "SET_PREVIOUS_IMAGE" })
     }
+
     const setBigImage = (url) => {
         dispatch({ type: "SET_BIG_IMAGE", payload: url })
-
     }
+
     useEffect(() => {
         const fetchData = async () => {
-           
             await getProducts(API);
         };
         fetchData();
     }, [])
-
-
-
-
-
 
     return <AppContext.Provider value={{ ...state, setSingleProduct, setBigImage, next, previous, }}>
         {children}
@@ -73,7 +66,4 @@ const useProductContext = () => {
 }
 
 export default ProductContext
-export { useProductContext };
-
-
-
+export { useProductContext }

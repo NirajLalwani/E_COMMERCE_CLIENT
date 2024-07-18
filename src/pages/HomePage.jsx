@@ -18,6 +18,7 @@ const HomePage = () => {
       <ProductSections Data={newlyLaunchedProducts} height='200px' headingName="Newly Launched" />
     </div>
   )
-}
+  
+}   
 
 export default HomePage

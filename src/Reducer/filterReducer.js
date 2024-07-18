@@ -57,6 +57,7 @@ const reducer = (state, action) => {
                 filterProducts: tempProducts,
                 isFilterLoading: false,
             }
+
         case "SET_FILTERS":
             return {
                 ...state,
@@ -74,6 +75,7 @@ const reducer = (state, action) => {
                     search: action.payload
                 }
             }
+
         case "CLEAR_FILTERS":
             return {
                 ...state,

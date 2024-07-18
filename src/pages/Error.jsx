@@ -1,3 +1,5 @@
+//~Erorr Page Which Loads when url not match
+
 import React from 'react'
 import { NavLink } from "react-router-dom"
 const Error = () => {

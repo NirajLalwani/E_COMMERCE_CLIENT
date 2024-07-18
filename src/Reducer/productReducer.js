@@ -7,23 +7,6 @@ const reducer = (state, action) => {
         };
     }
 
-
-    if (action.type === "SET_SINGLE_LOADING") {
-        return {
-            ...state,
-            isSingleLoading: true
-        };
-    }
-
-
-
-    if (action.type === "API_ERROR") {
-        return {
-            ...state,
-            isLoading: false,
-            isError: true
-        };
-    }
     if (action.type === "SET_API_DATA") {
 
         const featureData = action.payload.data.filter((currElem) => {
@@ -45,14 +28,12 @@ const reducer = (state, action) => {
     }
 
 
-    if (action.type === "SET_BIG_IMAGE") {
-
+    if (action.type === "SET_SINGLE_LOADING") {
         return {
             ...state,
-            BigImage: action.payload
+            isSingleLoading: true
         };
     }
-
 
     if (action.type === "SET_SINGLE_PRODUCT") {
 
@@ -78,6 +59,29 @@ const reducer = (state, action) => {
             BigImage: SingleData.images[0]
         };
     }
+
+
+
+
+    if (action.type === "API_ERROR") {
+        return {
+            ...state,
+            isLoading: false,
+            isError: true
+        };
+    }
+
+
+
+    if (action.type === "SET_BIG_IMAGE") {
+
+        return {
+            ...state,
+            BigImage: action.payload
+        };
+    }
+
+
 
 
     if (action.type === 'SET_NEXT_IMAGE') {

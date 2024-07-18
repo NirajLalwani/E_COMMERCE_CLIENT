@@ -8,8 +8,6 @@ import image from '../styles/images/register.png'
 import { useUserContext } from '../Context/UserContext';
 const Register = () => {
 
-
-
     const { isLogin } = useUserContext();
 
     const navigate = useNavigate();
