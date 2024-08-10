@@ -35,7 +35,6 @@ const FilterContext = ({ children }) => {
     const getCategory = () => {
         const arrayWithDuplicates = [];
         state.allProducts.forEach(curr => arrayWithDuplicates.push(curr.category));
-
         const uniqueArray = [...new Set(arrayWithDuplicates)];
 
         return uniqueArray;
