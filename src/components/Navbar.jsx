@@ -9,7 +9,7 @@ import { useUserContext } from '../Context/UserContext'
 import { useCart } from '../Context/CartContext';
 const Navbar = () => {
     const { cart } = useCart();
-    const { isLogin } = useUserContext()
+    const { isLogin, userData } = useUserContext()
 
     const [navopen, setNavopen] = useState(false);
 
@@ -56,8 +56,10 @@ const Navbar = () => {
                         <NavLink activeclassname='active' to='/contact'>Contact</NavLink>
                         <NavLink activeclassname='active' to='/products'>Products</NavLink>
                         {
-                            isLogin ? (
+                            isLogin ? (<>
+                                {userData.isAdmin && <NavLink activeclassname='active' to='/admin/products'>Admin</NavLink>}
                                 <NavLink activeclassname='active' to='/logout'>Logout</NavLink>
+                            </>
                             ) : (
                                 <>
                                     <NavLink activeclassname='active' to='/login'>Login</NavLink>

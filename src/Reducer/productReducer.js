@@ -60,6 +60,23 @@ const reducer = (state, action) => {
         };
     }
 
+    if (action.type === "SET_EDIT_LOADING") {
+        return {
+            ...state,
+            isEditLoading: true
+        };
+    }
+
+    if (action.type === "SET_EDIT_PRODUCT") {
+
+        var SingleData = action.payload.products.find((currElem) => currElem._id === action.payload._id)
+        return {
+            ...state,
+            EditProductsData: SingleData,
+            isEditLoading: false
+        };
+    }
+
 
 
 

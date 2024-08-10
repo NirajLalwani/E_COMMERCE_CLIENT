@@ -19,7 +19,12 @@ import Footer from "./components/Footer"
 import ForgotPassword from "./pages/ForgotPassword"
 import ResetPassword from "./pages/ResetPassword"
 import ScrollToTop from "./components/ScrollToTop"
-
+import AdminNavbar from "./components/AdminNavbar.jsx"
+import AdminMessages from "./pages/AdminMessages.jsx"
+import AdminProducts from "./pages/AdminProducts.jsx"
+import AdminUsers from "./pages/AdminUsers.jsx"
+import AdminEditProducts from "./pages/AdminEditProducts.jsx"
+import AdminAddNewProduct from "./pages/AdminAddNewProduct.jsx"
 function App() {
 
 
@@ -41,6 +46,13 @@ function App() {
         <Route path='/products' element={< Products />} />
         <Route path='/forgotpassword' element={< ForgotPassword />} />
         <Route path='/resetpassword/:token' element={< ResetPassword />} />
+        <Route path="/admin" element={<AdminNavbar />} >
+          <Route path='users' element={<AdminUsers />} />
+          <Route path='messages' element={<AdminMessages />} />
+          <Route path='products' element={<AdminProducts />} />
+          <Route path='product/addNew' element={<AdminAddNewProduct />} />
+          <Route path='product/edit/:id' element={<AdminEditProducts />} />
+        </Route>
       </Routes>
       <Footer />
       <ScrollToTopArrow />

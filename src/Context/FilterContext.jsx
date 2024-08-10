@@ -16,6 +16,7 @@ const FilterContext = ({ children }) => {
     const initialState = {
         allProducts: products,
         filterProducts: products,
+        adminFilterProducts: products,
         isFilterLoading: true,
         filters: {
             sortBy: false,

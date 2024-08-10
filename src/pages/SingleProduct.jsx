@@ -38,7 +38,7 @@ const SingleProduct = () => {
             }
         };
 
-        scrollToTop()
+        scrollToTop();
 
     }, [products, param.id])
 

@@ -13,6 +13,8 @@ const ProductContext = ({ children }) => {
         featureProducts: [],
         newlyLaunchedProducts: [],
         isSingleLoading: true,
+        EditProductsData: false,
+        isEditLoading: true,
         singleProduct: false,
         BigImage: ""
     }
@@ -37,10 +39,14 @@ const ProductContext = ({ children }) => {
         return state.singleProduct
     }
 
+    const setEditProductsData = (_id) => {
+        dispatch({ type: "SET_EDIT_LOADING" })
+        dispatch({ type: "SET_EDIT_PRODUCT", payload: { products: state.products, _id } })
+    }
     const next = () => {
         dispatch({ type: "SET_NEXT_IMAGE" })
     }
-    
+
     const previous = () => {
         dispatch({ type: "SET_PREVIOUS_IMAGE" })
     }
@@ -56,7 +62,7 @@ const ProductContext = ({ children }) => {
         fetchData();
     }, [])
 
-    return <AppContext.Provider value={{ ...state, setSingleProduct, setBigImage, next, previous, }}>
+    return <AppContext.Provider value={{ ...state, setSingleProduct, setBigImage, next, previous, setEditProductsData }}>
         {children}
     </AppContext.Provider>
 }
