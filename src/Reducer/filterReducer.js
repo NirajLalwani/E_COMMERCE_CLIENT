@@ -47,7 +47,7 @@ const reducer = (state, action) => {
                 tempProducts = tempProducts.filter((curr) => curr.price < state.filters.priceLessThan);
             }
             if (state.filters.category) {
-                tempProducts = tempProducts.filter((curr) => curr.category === state.filters.category);
+                tempProducts = tempProducts.filter((curr) => curr.category.toLowerCase() === state.filters.category.toLowerCase());
             }
 
 

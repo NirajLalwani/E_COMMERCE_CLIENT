@@ -1634,3 +1634,7 @@ table thead {
         display: none;
     }
 }
+
+.text-capitalize {
+    text-transform: capitalize;
+}

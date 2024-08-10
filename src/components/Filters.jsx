@@ -17,22 +17,22 @@ const Filters = () => {
                 </div>
                 <div>
                     <p>Price</p>
-                    <select name="sortBy" id="" onChange={setFilters}  value={filters.sortBy}>
+                    <select name="sortBy" id="" onChange={setFilters} value={filters.sortBy}>
                         <option value={false}>Sort By</option>
-                        <option value="low-high">low-high</option>
-                        <option value="high-low">high-low</option>
-                        <option value="a-z">a-z</option>
-                        <option value="z-a">z-a</option>
+                        <option value="low-high">Low-High</option>
+                        <option value="high-low">High-Low</option>
+                        <option value="a-z">A-Z</option>
+                        <option value="z-a">Z-A</option>
                     </select>
                 </div>
                 <div>
                     <p>Category</p>
-                    <select name="category" id="" onChange={setFilters}  value={filters.category}>
+                    <select name="category" id="" onChange={setFilters} value={filters.category}>
                         <option value={false}>All</option>
                         {
                             category.map(curr => {
                                 return (<>
-                                    <option value={curr}>{curr}</option>
+                                    <option className="text-capitalize"value={curr}>{curr}</option>
                                 </>)
                             })
                         }
@@ -44,7 +44,7 @@ const Filters = () => {
                         Price Less Than :
                     </p>
                     <input type="number" onInput={setFilters} name="priceLessThan"
-                        value={filters.priceLessThan}  />
+                        value={filters.priceLessThan} />
                 </div>
                 <div>
                     <button className="btn red" onClick={clearFilters}>Clear Filters</button>
